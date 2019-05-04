@@ -1,0 +1,15 @@
+<h1>create/update</h1>
+
+
+<form method="post">{% csrf_token %}
+    owner_email<input type="text" value="{{ post.owner_email }}"><br/>
+    owner_number<input type="text" value="{{ post.owner_number }}"><br/>
+    concert_name<input type="text" value="{{ post.concert_name }}"><br/>
+    singer<input type="text" value="{{ post.singer }}"><br/>
+    concert_date<input type="text" value="{{ post.concert_date }}"><br/>
+    post_date<input type="text" value="{{ post.post_date }}"><br/>
+    pwd<input type="text" value="{{ post.pwd }}"><br/>
+    capacity<input type="text" value="{{ post.capacity }}"><br/>
+    description<textarea>{{ post.description }}</textarea><br/>
+    <input type="submit" value="submit"/>
+</form>

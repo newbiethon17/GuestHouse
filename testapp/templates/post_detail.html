@@ -1,0 +1,14 @@
+<h1>detail</h1>
+
+owner_email:{{ post.owner_email }}<br/>
+owner_number:{{ post.owner_number }}<br/>
+concert_name:{{ post.concert_name }}<br/>
+singer:{{ post.singer }}<br/>
+concert_date:{{ post.concert_date }}<br/>
+post_date:{{ post.post_date }}<br/>
+pwd:{{ post.pwd }}<br/>
+capacity:{{ post.capacity }}<br/>
+description:{{ post.description }}<br/>
+<img src ="{{ object.img_url }}"/><br/>
+
+<a href="{% url 'home' %}" >home</a>
