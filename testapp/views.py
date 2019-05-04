@@ -3,16 +3,15 @@ from django.shortcuts import get_object_or_404, render, redirect
 from .models import Post
 from .models import Member
 from .forms import *
-from django.urls import reverse_lazy
-from .starter import startpost
 
 def index(request):
     object_list = Post.objects.all()
     return render(request, 'home.html', {'object_list':object_list})
 
 def detail(request, pk):
-     post = get_object_or_404(Post,id=pk)
-     return render(request, 'post_detail.html', {'post':post})
+    post = get_object_or_404(Post,id=pk)
+    return render(request, 'post_detail.html', {'post':post})
+
 def delete(request, pk):
     post = get_object_or_404(Post,id=pk)
     if request.method == "GET": 
@@ -44,7 +43,7 @@ def create(request):
         new_member.email = request.POST['owner_email']
         new_member.number = request.POST['owner_number']
         new_member.pwd = request.POST['owner_pwd']
-        new_member.chosen_post =  form_pk.id
+        new_member.chosen_post = form_pk
         new_member.save()
         
         object_list = Post.objects.all()

@@ -13,11 +13,12 @@ class Post(models.Model):
     now_capacity = models.IntegerField(default=0)
     capacity = models.IntegerField(default=0)
     description = models.CharField(max_length=1000,default="")
+    
 
 class Member(models.Model):
+    chosen_post =  models.ForeignKey(Post, on_delete=models.CASCADE)
     email = models.CharField(max_length=1000,default="")
-    number = models.CharField(max_length=1000, default="")
     pwd = models.IntegerField(default=0)
-    chosen_post = models.ForeignKey(
-        Post, on_delete=models.CASCADE)
+    number = models.CharField(max_length=1000,default="")
+    
     
