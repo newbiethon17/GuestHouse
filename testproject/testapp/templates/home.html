@@ -1,47 +1,138 @@
 <html lang="kr">
 
 <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <title>GuestHouse</title>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" rel="stylesheet">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
-    
+
+    <style>
+        #main-section {
+            margin: 20px;
+        }
+
+        #nav-section {
+            margin: 20px;
+        }
+    </style>
+
 </head>
 
 <body>
-    <h1>Home</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Guest House</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <table class="table">
-        <thead class="thead-light">
-            <tr>
-                <th>글쓴이이메일</th>
-                <th>콘서트이름</th>
-                <th>가수</th>
-                <th>콘서트날짜</th>
-                <th>게시날짜</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for post in object_list %}
-            <tr>
-                <td>{{ post.owner_email }}</td>
-                <td>{{ post.concert_name }}</td>
-                <td>{{ post.singer }}</td>
-                <td>{{ post.concert_date }}</td>
-                <td>{{ post.post_date }}</td>
-                <td><a href="{% url 'detail' post.id %}">detail</a></td>
-                <td><a href="{% url 'update' post.id %}">update</a></td>
-                <td><a href="{% url 'delete' post.id %}">delete</a></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
 
-    <a href="{% url 'create' %}">new</a>
-    <a href="{% url 'start' %}">시작</a>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">검색</button>
+            </form>
+        </div>
+    </nav>
 
+    <header>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Guest House</h1>
+                <p class="lead">팬들끼리 소통할 수 있는 공간.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <section id="nav-section">
+            <input class="btn btn-outline-primary" type="button" value="모임 만들기" onClick="location.href='{% url 'create' %}'">
+
+            <!-- <a href="{% url 'create' %}">모임 만들기</a> -->
+    </section>
+
+    <section id="main-section">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>콘서트이름</th>
+                    <th>글쓴이이메일</th>
+                    <th>가수</th>
+                    <th>콘서트날짜</th>
+                    <th>게시날짜</th>
+                    <th></th>
+                    <th></th>
+                    <th>신청하기</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in object_list %}
+                <tr>
+
+                    <td>{{ post.owner_email }}</td>
+                    <td>{{ post.singer }}</td>
+                    <td>{{ post.concert_date }}</td>
+                    <td>{{ post.post_date }}</td>
+                    <td><a href="{% url 'update' post.id %}">수정하기</a></td>
+                    <td><a href="{% url 'delete' post.id %}">삭제하기</a></td>
+                    <td><button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                        data-target="#JoinModal">참가신청</button></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Join Modal -->
+        <div class="modal fade" id="JoinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">모임 참가 신청</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action = "#" accept-charset="utf-8" name = "person_info" method = "post">
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Email:</label>
+                                <input type="text" class="form-control" id="recipient-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Phone Number:</label>
+                                <input type="text" class="form-control" id="message-text"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Password:</label>
+                                <input type="text" class="form-control" id="message-text"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </section>
+
+    <footer>
+
+
+    </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -54,6 +145,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>
