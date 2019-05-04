@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',testapp.views.index,name="index"),
     path('create/',testapp.views.create,name="create"),
-    #path('detail/<int:pk>',testapp.views.PostDetail.as_view(),name="detail"),
+    path('detail/<int:pk>',testapp.views.detail,name="detail"),
     path('update/<int:pk>',testapp.views.update,name="update"),
     path('delete/<int:pk>',testapp.views.delete,name="delete"),
 ]
