@@ -1,0 +1,30 @@
+<h1>Home</h1>
+
+<table border="1">
+<thead>
+    <tr>
+    <th>글쓴이이메일</th>
+    <th>콘서트이름</th>
+    <th>가수</th>
+    <th>콘서트날짜</th>
+    <th>게시날짜</th>
+    </tr>
+</thead>
+<tbody>
+{% for post in object_list %}
+    <tr>
+    <td>{{ post.owner_email }}</td>
+    <td>{{ post.concert_name }}</td>
+    <td>{{ post.singer }}</td>
+    <td>{{ post.concert_date }}</td>
+    <td>{{ post.post_date }}</td>
+    <td><a href="{% url 'detail' post.id %}">detail</a></td>
+    <td><a href="{% url 'update' post.id %}">update</a></td>
+    <td><a href="{% url 'delete' post.id %}">delete</a></td>
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+
+<a href="{% url 'create' %}">new</a>
+<a href="{% url 'start' %}">시작</a>
