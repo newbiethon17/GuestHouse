@@ -25,7 +25,7 @@ SECRET_KEY = 'sarbnck6c3so+p5^*5t02xubbzf&^-@)#d232ne-t87hs3v4*9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['lunacircle4.run.goorm.io']
+ALLOWED_HOSTS = []
 
 
 # Application definition
