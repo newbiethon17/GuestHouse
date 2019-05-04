@@ -19,15 +19,9 @@ import testapp.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',testapp.views.PostList.as_view(),name="home"),
-    path('start',testapp.views.start,name="start"),
-    # 아래 부터 CRUD 4가지 
-    # 영화를 생성할 url (Create)
-    path('create/',testapp.views.PostCreate.as_view(),name="create"),
-    # 각 영화 detail url(Read)
-    path('detail/<int:pk>',testapp.views.PostDetail.as_view(),name="detail"),
-    # 영화를 수정할 url (Update)
-    path('update/<int:pk>',testapp.views.PostUpdate.as_view(),name="update"),
-    # 영화를 제거할 url (Delete)
-    path('delete/<int:pk>',testapp.views.PostDelete.as_view(),name="delete"),
+    path('',testapp.views.index,name="index"),
+    path('create/',testapp.views.create,name="create"),
+    #path('detail/<int:pk>',testapp.views.PostDetail.as_view(),name="detail"),
+    path('update/<int:pk>',testapp.views.update,name="update"),
+    path('delete/<int:pk>',testapp.views.delete,name="delete"),
 ]
