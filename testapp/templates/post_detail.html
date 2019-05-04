@@ -1,23 +1,3 @@
-<!--
-<h1>detail</h1>
-
-owner_email:{{ post.owner_email }}<br/>
-owner_number:{{ post.owner_number }}<br/>
-concert_name:{{ post.concert_name }}<br/>
-singer:{{ post.singer }}<br/>
-concert_date:{{ post.concert_date }}<br/>
-post_date:{{ post.post_date }}<br/>
-owner_pwd:{{ post.owner_pwd }}<br/>
-capacity:{{ post.capacity }}<br/>
-now_capacity:{{ post.now_capacity }}<br/>
-description:{{ post.description }}<br/>
-<img src ="{{ object.img_url }}"/><br/>
-
-<a href="{% url 'index' %}" >home</a> -->
-
-
-
-
 <html lang="kr">
     
 
@@ -33,9 +13,100 @@ description:{{ post.description }}<br/>
         <li class="list-group-item text-monospace"><strong>email</strong> : {{post.owner_email}}</li>
         <li class="list-group-item text-monospace"><strong>concert title</strong> : {{post.concert_name}}</li>
         <li class="list-group-item text-monospace"><strong>singer</strong> : {{post.singer}}</li>
-        <li class="list-group-item text-monospace"><strong>date</strong> : {{post.concert_date}}</li>
-        <li class="list-group-item text-monospace"><strong>date</strong> : {{post.post_date}}</li>
+        <li class="list-group-item text-monospace"><strong>concert date</strong> : {{post.concert_date}}</li>
+        <li class="list-group-item text-monospace"><strong>posted date</strong> : {{post.post_date}}</li>
+        <li class="list-group-item text-monospace"><strong>capacity</strong> : {{post.now_capacity}}</li>
+        <li class="list-group-item text-monospace"><strong>max capacity</strong> : {{post.capacity}}</li>
     </ul>
+        <br>
+        {% if post.capacity == post.now_capacity %}
+        <button type="button" class="btn btn-outline-primary" data-toggle="modal"data-target="#JoinModal" disabled>참가신청</button>
+        {% else %}
+        <button type="button" class="btn btn-outline-primary" data-toggle="modal"data-target="#JoinModal">참가신청</button>
+        {% endif %}
+        
+        <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                        data-target="#CancelModal">참가취소</button>
+        
+        <a href="/reserve"><button type="button" class="btn btn-outline-primary"
+                        data-target="#CancelModal">모집완료</button>
+        </a>
+    
+    
+        <!-- Join Modal -->
+        <div class="modal fade" id="JoinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">모임 참가 신청</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action = "/participate/{{post.id}}" accept-charset="utf-8" method = "post">
+                             {% csrf_token %}
+                            <div class="form-group">
+                                <label for="user-email" class="col-form-label">Email:</label>
+                                <input type="text" class="form-control" id="user-email" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="user-phonenum" class="col-form-label">Phone Number:</label>
+                                <input type="text" class="form-control" id="user-phonenum" name="number">
+                            </div>
+                            <div class="form-group">
+                                <label for="user-pw" class="col-form-label">Password:</label>
+                                <input type="text" class="form-control" id="user-pw" name="pwd"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Cancel Modal -->
+        <div class="modal fade" id="CancelModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">모임 참가 취소</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action = "/unparticipate/{{post.id}}" accept-charset="utf-8" method = "post">
+                             {% csrf_token %}
+                            <div class="form-group">
+                                <label for="user-email" class="col-form-label">Email:</label>
+                                <input type="text" class="form-control" id="user-email" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="user-pw" class="col-form-label">Password:</label>
+                                <input type="text" class="form-control" id="user-pw" name="pwd"></input>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -45,5 +116,4 @@ description:{{ post.description }}<br/>
         crossorigin="anonymous"></script>
 </body>
 
-</div>
 </html>

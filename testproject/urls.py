@@ -24,4 +24,9 @@ urlpatterns = [
     path('detail/<int:pk>',testapp.views.detail,name="detail"),
     path('update/<int:pk>',testapp.views.update,name="update"),
     path('delete/<int:pk>',testapp.views.delete,name="delete"),
+    path('participate/<int:pk>',testapp.views.participate, name="participate"),
+    path('unparticipate/<int:pk>',testapp.views.unparticipate,name="unparticipate"),
+    path('reserve',testapp.views.reserve,name="reserve"),
+    path('reserve_house',testapp.views.reserve_house,name="reserve_house"),
+    path('reserve_finish',testapp.views.reserve_finish,name="reserve_finish"),
 ]

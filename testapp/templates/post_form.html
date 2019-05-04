@@ -1,17 +1,76 @@
-<h1>update</h1>
+{% load staticfiles %}
+<html lang="kr">
+    <head>
 
+        <!-- Bootstrap CSS -->
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'assets/css/post_form.css' %}">
 
-<form action="{{post.id}}" method="post">
-    {% csrf_token %}
-    owner_email<input type="text" value="{{ post.owner_email }}" name="owner_email"><br/>
-    owner_number<input type="text" value="{{ post.owner_number }}" name="owner_number"><br/>
-    concert_name<input type="text" value="{{ post.concert_name }}" name="concert_name"><br/>
-    singer<input type="text" value="{{ post.singer }}" name="singer"><br/>
-    concert_date<input type="text" value="{{ post.concert_date }}" name="concert_date"><br/>
-    post_date<input type="text" value="{{ post.post_date }}" name="post_date"><br/>
-    owner_pwd<input type="text" value="{{ post.owner_pwd }}" name="owner_pwd"><br/>
-    now_capacity<input type="text" value="{{ post.now_capacity }}" name="now_capacity"><br/>
-    capacity<input type="text" value="{{ post.capacity }}" name="capacity"><br/>
-    description<textarea name="description">{{ post.description }}</textarea><br/>
-    <input type="submit" value="submit"/>
-</form>
+    </head>
+
+    <body>
+        <div class="container">
+            <form action="{{post.id}}" method="post">{% csrf_token %}
+                <div id="first">
+                    <div class="card" style="width: 30rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Guest <span style="color:rgb(223, 66, 74)">House</span></h5>
+                            <p class="card-text">User page</p>
+                        </div>
+                        <hr style="border: solid 2px rgb(223, 66, 74);">
+
+                        <div class="space">
+                            <label>이메일 :</label><br><input name="owner_email" type="text" value="{{ post.owner_email }}"><br></div>
+                        <div class="space">
+                            <label>전화번호 :</label><br><input name="owner_number" type="text" value="{{ post.owner_number }}"><br></div>
+                        <div class="space">
+                            <label>콘서트 이름 :</label><br><input name="concert_name" type="text" value="{{ post.concert_name }}"><br></div>
+                        <div class="space">
+                            <label>가수 :</label><br><input name="singer" type="text" value="{{ post.singer }}"><br></div>
+                        <div class="space">
+                            <label>콘서트 날짜 :</label><br><input name="concert_date" type="text" value="{{ post.concert_date }}"><br></div>
+                        <div class="space">
+                            <label>게시 날짜 :</label><br><input name="post_date" type="text" value="{{ post.post_date }}"><br></div>
+                        <div class="space">
+                            <label>패스워드(숫자) :</label><br><input name="owner_pwd" type="text" value="{{ post.owner_pwd }}"><br></div>
+                        <div class="space">
+                            <label>현재인원:</label><br><input name="now_capacity" type="text" value="{{ post.now_capacity }}"><br></div>
+                         <div class="space">
+                            <label>최대인원:</label><br><input name="capacity" type="text" value="{{ post.capacity }}"><br></div>
+                                                
+                        <div class="space">
+                            <label>상세내용 :</label><br>
+                            <div class="form-group">
+                                    <label for="exampleFormControlTextarea1"></label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="width: 300px;" name="description">{{post.description}}</textarea>
+                                  </div>
+
+                        <div class="space">
+                            <button type="submit" class="btn btn-danger">submit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+    </body>
+
+</html>

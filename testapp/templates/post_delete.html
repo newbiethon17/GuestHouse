@@ -1,5 +1,40 @@
+<html lang="kr">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+        <title>GuestHouse</title>
+    
+        <style>
+
+            #form-group{
+                margin: 20px;
+            }
+
+        </style>
+        
+    </head>
+        
+<body>
 <h1>delete</h1>
-<form action="{{post.id}}" method="post">{% csrf_token %}
+
+<form action = "{{post.id}}" method = "post">{% csrf_token %}
     Are you sure you want to delete {{ object.title }}? 
-    <input type="submit" value="submit"/>
+    <div class="form-group">
+        <label for="user-pw" class="col-form-label">email:</label>
+        <input type="text" class="form-control" id="user-pw" name="email"></textarea>
+        <label for="user-pw" class="col-form-label">Password:</label>
+        <input type="text" class="form-control" id="user-pw" name="pwd"></textarea>
+    </div>
+    <button type="submit" class="btn btn-outline-primary">Submit</button>
 </form>
+
+</body>
+
+</html>

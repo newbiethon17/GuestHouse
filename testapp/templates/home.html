@@ -35,22 +35,25 @@
             <ul class="navbar-nav mr-auto">
 
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="form-inline my-2 my-lg-0" action="/#">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id='kw1' name='kw2'>
                 <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">검색</button>
             </form>
         </div>
     </nav>
 
     <header>
-        <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron jumbotron-fluid" style="background-image: url('https://github.com/ros008/test01/blob/master/test/idol.png?raw=true'); height: 700px;">
             <div class="container">
-                <h1 class="display-4">Guest House</h1>
-                <p class="lead">팬들끼리 소통할 수 있는 공간.
-                </p>
+            <p></p>
             </div>
         </div>
     </header>
+
+    <section id="title" style="text-align:center;">
+            <h1 class="display-4"><strong>Guest House</strong></h1>
+            <p class="lead">팬들끼리 소통할 수 있는 공간.</p>
+    </section>
 
     <section id="nav-section">
             <input class="btn btn-outline-primary" type="button" value="모임 만들기" onClick="location.href='{% url 'create' %}'">
@@ -63,72 +66,42 @@
             <thead class="thead-light">
                 <tr>
                     <th>콘서트이름</th>
-                    <th>글쓴이이메일</th>
                     <th>가수</th>
                     <th>콘서트날짜</th>
+                    <th>글쓴이이메일</th>
                     <th>게시날짜</th>
-                    <th></th>
-                    <th></th>
-                    <th>신청하기</th>
+                    <th>수정</th>
+                    <th>삭제</th>
+                    <th>상세정보</th>
                 </tr>
             </thead>
             <tbody>
                 {% for post in object_list %}
                 <tr>
-
-                    <td>{{ post.owner_email }}</td>
+                    <td>{{ post.concert_name }}</td>
                     <td>{{ post.singer }}</td>
                     <td>{{ post.concert_date }}</td>
+                    <td>{{ post.owner_email }}</td>
                     <td>{{ post.post_date }}</td>
-                    <td><a href="{% url 'update' post.id %}">수정하기</a></td>
-                    <td><a href="{% url 'delete' post.id %}">삭제하기</a></td>
-                    <td><button type="button" class="btn btn-outline-primary" data-toggle="modal"
-                        data-target="#JoinModal">참가신청</button></td>
+                    <td>
+                        <a href="{% url 'update' post.id %}">
+                            <button type="button" class="btn btn-outline-primary">수정하기</button>
+                        </a>
+                    </td>
+                     <td>
+                         <a href="{% url 'delete' post.id %}">
+                             <button type="button" class="btn btn-outline-primary">삭제하기</button>
+                         </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'detail' post.id %}">
+                            <button type="button" class="btn btn-outline-primary">상세정보</button>
+                        </a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-
-        <!-- Join Modal -->
-        <div class="modal fade" id="JoinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">모임 참가 신청</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action = "#" accept-charset="utf-8" name = "person_info" method = "post">
-                            <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Email:</label>
-                                <input type="text" class="form-control" id="recipient-name">
-                            </div>
-                            <div class="form-group">
-                                <label for="message-text" class="col-form-label">Phone Number:</label>
-                                <input type="text" class="form-control" id="message-text"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="message-text" class="col-form-label">Password:</label>
-                                <input type="text" class="form-control" id="message-text"></textarea>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-
-
-    </section>
-
     <footer>
 
 
@@ -149,7 +122,7 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" rel="stylesheet">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
-
+</section>
 </body>
 
 </html>

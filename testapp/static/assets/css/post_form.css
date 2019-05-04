@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR');
+
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+h5{
+    font-size: 40px;
+}
+
+div#first{
+    width:600px;
+    height:auto;
+    margin:50px auto 0;
+    padding:50px;
+    background-color:#EEE;
+    color:#333;
+    /* border:2px solid #C2D6FF; */
+    border-radius:40px 0 40px 0
+}  
+.card{
+    background-color:#EEE;
+    border: 0px;
+}
+.space{
+    margin-bottom: 15px;
+    margin-left: 90px;
+}
+#title {
+    background-repeat:no-repeat;
+    background-position:6px;
+    border:1px solid #DADADA;
+    margin-top:10px;
+    margin-bottom:10px;
+    padding-left:35px;
+    width:310px;
+    height:30px;
+    font-size:14px;
+    box-shadow:0 0 10px;
+    -webkit-box-shadow:0 0 6px;
+    /* For I.E */
+    -moz-box-shadow:0 0 6px;
+    /* For Mozilla Web Browser */
+    border-radius:5px;
+    -webkit-border-radius:5px;
+    /* For I.E */
+    -moz-border-radius:5px
+    /* For Mozilla Web Browser */
+}
+#singer{
+        background-repeat:no-repeat;
+        background-position:6px;
+        border:1px solid #DADADA;
+        margin-top:10px;
+        margin-bottom:10px;
+        padding-left:35px;
+        width:310px;
+        height:30px;
+        font-size:14px;
+        box-shadow:0 0 10px;
+        -webkit-box-shadow:0 0 6px;
+        /* For I.E */
+        -moz-box-shadow:0 0 6px;
+        /* For Mozilla Web Browser */
+        border-radius:5px;
+        -webkit-border-radius:5px;
+        /* For I.E */
+        -moz-border-radius:5px
+        /* For Mozilla Web Browser */
+}
+#concert_name{
+        background-repeat:no-repeat;
+        background-position:6px;
+        border:1px solid #DADADA;
+        margin-top:10px;
+        margin-bottom:10px;
+        padding-left:35px;
+        width:310px;
+        height:30px;
+        font-size:14px;
+        box-shadow:0 0 10px;
+        -webkit-box-shadow:0 0 6px;
+        /* For I.E */
+        -moz-box-shadow:0 0 6px;
+        /* For Mozilla Web Browser */
+        border-radius:5px;
+        -webkit-border-radius:5px;
+        /* For I.E */
+        -moz-border-radius:5px
+        /* For Mozilla Web Browser */
+}
+#concert_date{
+    background-repeat:no-repeat;
+    background-position:6px;
+    border:1px solid #DADADA;
+    margin-top:10px;
+    margin-bottom:10px;
+    padding-left:35px;
+    width:310px;
+    height:30px;
+    font-size:14px;
+    box-shadow:0 0 10px;
+    -webkit-box-shadow:0 0 6px;
+    /* For I.E */
+    -moz-box-shadow:0 0 6px;
+    /* For Mozilla Web Browser */
+    border-radius:5px;
+    -webkit-border-radius:5px;
+    /* For I.E */
+    -moz-border-radius:5px
+    /* For Mozilla Web Browser */
+}
+#name{
+    background-repeat:no-repeat;
+    background-position:6px;
+    border:1px solid #DADADA;
+    margin-top:10px;
+    margin-bottom:10px;
+    padding-left:35px;
+    width:310px;
+    height:30px;
+    font-size:14px;
+    box-shadow:0 0 10px;
+    -webkit-box-shadow:0 0 6px;
+    /* For I.E */
+    -moz-box-shadow:0 0 6px;
+    /* For Mozilla Web Browser */
+    border-radius:5px;
+    -webkit-border-radius:5px;
+    /* For I.E */
+    -moz-border-radius:5px
+    /* For Mozilla Web Browser */
+}
+#email{
+    background-repeat:no-repeat;
+    background-position:6px;
+    border:1px solid #DADADA;
+    margin-top:10px;
+    margin-bottom:10px;
+    padding-left:35px;
+    width:310px;
+    height:30px;
+    font-size:14px;
+    box-shadow:0 0 10px;
+    -webkit-box-shadow:0 0 6px;
+    /* For I.E */
+    -moz-box-shadow:0 0 6px;
+    /* For Mozilla Web Browser */
+    border-radius:5px;
+    -webkit-border-radius:5px;
+    /* For I.E */
+    -moz-border-radius:5px
+    /* For Mozilla Web Browser */
+}
+#number{
+    background-repeat:no-repeat;
+    background-position:6px;
+    border:1px solid #DADADA;
+    margin-top:10px;
+    margin-bottom:10px;
+    padding-left:35px;
+    width:310px;
+    height:30px;
+    font-size:14px;
+    box-shadow:0 0 10px;
+    -webkit-box-shadow:0 0 6px;
+    /* For I.E */
+    -moz-box-shadow:0 0 6px;
+    /* For Mozilla Web Browser */
+    border-radius:5px;
+    -webkit-border-radius:5px;
+    /* For I.E */
+    -moz-border-radius:5px
+    /* For Mozilla Web Browser */
+}
+#pwd{
+    background-repeat:no-repeat;
+    background-position:6px;
+    border:1px solid #DADADA;
+    margin-top:10px;
+    margin-bottom:10px;
+    padding-left:35px;
+    width:310px;
+    height:30px;
+    font-size:14px;
+    box-shadow:0 0 10px;
+    -webkit-box-shadow:0 0 6px;
+    /* For I.E */
+    -moz-box-shadow:0 0 6px;
+    /* For Mozilla Web Browser */
+    border-radius:5px;
+    -webkit-border-radius:5px;
+    /* For I.E */
+    -moz-border-radius:5px
+    /* For Mozilla Web Browser */
+}
+#capacity{
+    background-repeat:no-repeat;
+    background-position:6px;
+    border:1px solid #DADADA;
+    margin-top:10px;
+    margin-bottom:10px;
+    padding-left:35px;
+    width:310px;
+    height:30px;
+    font-size:14px;
+    box-shadow:0 0 10px;
+    -webkit-box-shadow:0 0 6px;
+    /* For I.E */
+    -moz-box-shadow:0 0 6px;
+    /* For Mozilla Web Browser */
+    border-radius:5px;
+    -webkit-border-radius:5px;
+    /* For I.E */
+    -moz-border-radius:5px
+    /* For Mozilla Web Browser */
+}

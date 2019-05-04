@@ -7,8 +7,8 @@ class Post(models.Model):
     owner_number = models.CharField(max_length=1000,default="")
     concert_name = models.CharField(max_length=1000,default="")
     singer = models.CharField(max_length=1000,default="")
-    concert_date = models.IntegerField(default=0)
-    post_date = models.IntegerField(default=0)
+    concert_date = models.CharField(max_length=1000,default=0)
+    post_date = models.CharField(max_length=1000,default=0)
     owner_pwd = models.IntegerField(default=0)
     now_capacity = models.IntegerField(default=0)
     capacity = models.IntegerField(default=0)
@@ -16,7 +16,7 @@ class Post(models.Model):
     
 
 class Member(models.Model):
-    chosen_post =  models.ForeignKey(Post, on_delete=models.CASCADE)
+    chosen_post =  models.ForeignKey(Post, on_delete=models.CASCADE, null=True)
     email = models.CharField(max_length=1000,default="")
     pwd = models.IntegerField(default=0)
     number = models.CharField(max_length=1000,default="")
