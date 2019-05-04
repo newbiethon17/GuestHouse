@@ -20,6 +20,7 @@
     <td>{{ post.post_date }}</td>
     <td>{{ post.now_capacity }}</td>
     <td>{{ post.capacity }}</td>
+    <td><a href="{% url 'detail' post.id %}">detail</a></td>
     <td><a href="{% url 'update' post.id %}">update</a></td>
     <td><a href="{% url 'delete' post.id %}">delete</a></td>
     </tr>

@@ -5,29 +5,14 @@ from .models import Member
 from .forms import *
 from django.urls import reverse_lazy
 from .starter import startpost
-'''
-def start(request):
-    startpost()
-    return redirect('home')
 
-class PostList(ListView):
-    model = Post
-    template_name = 'home.html'
-class PostCreate(CreateView):
-    model = Post
-    fields =  '__all__'
-    template_name = 'post_form.html'
-    success_url = reverse_lazy('home')
-    
-    
-class PostDetail(DetailView):
-    model = Post
-    template_name = 'post_detail.html'
-  '''  
 def index(request):
     object_list = Post.objects.all()
     return render(request, 'home.html', {'object_list':object_list})
 
+def detail(request, pk):
+     post = get_object_or_404(Post,id=pk)
+     return render(request, 'post_detail.html', {'post':post})
 def delete(request, pk):
     post = get_object_or_404(Post,id=pk)
     if request.method == "GET": 
@@ -39,7 +24,7 @@ def delete(request, pk):
     
 def update(request, pk):
     post = get_object_or_404(Post,id=pk)
-    if request.method == "GET": 
+    if request.method == "GET":
         return render(request, 'post_form.html', {'post':post})
     else:
         form = PostForm(request.POST, instance=post)
@@ -53,6 +38,14 @@ def create(request):
         return render(request, 'post_create.html')
     else:
         form = PostForm(request.POST)
-        form.save()
+        form_pk = form.save()
+        
+        new_member = Member()
+        new_member.email = request.POST['owner_email']
+        new_member.number = request.POST['owner_number']
+        new_member.pwd = request.POST['owner_pwd']
+        new_member.chosen_post =  form_pk.id
+        new_member.save()
+        
         object_list = Post.objects.all()
         return render(request, 'home.html', {'object_list':object_list})
