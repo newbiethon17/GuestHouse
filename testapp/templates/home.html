@@ -7,7 +7,8 @@
     <th>가수</th>
     <th>콘서트날짜</th>
     <th>게시날짜</th>
-    <th>수용인원</th>
+    <th>현재인원</th>
+    <th>최대인원</th>
     </tr>
 </thead>
 <tbody>
@@ -17,8 +18,8 @@
     <td>{{ post.singer }}</td>
     <td>{{ post.concert_date }}</td>
     <td>{{ post.post_date }}</td>
+    <td>{{ post.now_capacity }}</td>
     <td>{{ post.capacity }}</td>
-    <td><a href="{% url 'detail' post.id %}">detail</a></td>
     <td><a href="{% url 'update' post.id %}">update</a></td>
     <td><a href="{% url 'delete' post.id %}">delete</a></td>
     </tr>
@@ -27,4 +28,3 @@
 </table>
 
 <a href="{% url 'create' %}">new</a>
-<a href="{% url 'start' %}">시작</a>

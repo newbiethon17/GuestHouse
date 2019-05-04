@@ -9,6 +9,7 @@ def startpost():
         singer="xxx",
         concert_date=1,
         post_date=2,
-        pwd = 3333,
+        owner_pwd = 3333,
+        now_capacity = 4,
         capacity = 4,
         description = "xxxxxxxxx",).save()

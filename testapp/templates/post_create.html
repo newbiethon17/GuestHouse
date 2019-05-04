@@ -1,7 +1,7 @@
-<h1>update</h1>
+<h1>create</h1>
 
 
-<form action="{{post.id}}" method="post">
+<form action="" method="post">
     {% csrf_token %}
     owner_email<input type="text" value="{{ post.owner_email }}" name="owner_email"><br/>
     owner_number<input type="text" value="{{ post.owner_number }}" name="owner_number"><br/>
