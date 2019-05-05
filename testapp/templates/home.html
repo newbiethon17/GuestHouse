@@ -1,31 +1,128 @@
-<h1>Home</h1>
+<html lang="kr">
 
-<table border="1">
-<thead>
-    <tr>
-    <th>콘서트이름</th>
-    <th>가수</th>
-    <th>콘서트날짜</th>
-    <th>게시날짜</th>
-    <th>현재인원</th>
-    <th>최대인원</th>
-    </tr>
-</thead>
-<tbody>
-{% for post in object_list %}
-    <tr>
-    <td>{{ post.concert_name }}</td>
-    <td>{{ post.singer }}</td>
-    <td>{{ post.concert_date }}</td>
-    <td>{{ post.post_date }}</td>
-    <td>{{ post.now_capacity }}</td>
-    <td>{{ post.capacity }}</td>
-    <td><a href="{% url 'detail' post.id %}">detail</a></td>
-    <td><a href="{% url 'update' post.id %}">update</a></td>
-    <td><a href="{% url 'delete' post.id %}">delete</a></td>
-    </tr>
-{% endfor %}
-</tbody>
-</table>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<a href="{% url 'create' %}">new</a>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>GuestHouse</title>
+
+    <style>
+        #main-section {
+            margin: 20px;
+        }
+
+        #nav-section {
+            margin: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Guest House</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action="/#">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id='kw1' name='kw2'>
+                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">검색</button>
+            </form>
+        </div>
+    </nav>
+
+    <header>
+        <div class="jumbotron jumbotron-fluid" style="background-image: url('https://github.com/ros008/test01/blob/master/test/idol.png?raw=true'); height: 700px;">
+            <div class="container">
+            <p></p>
+            </div>
+        </div>
+    </header>
+
+    <section id="title" style="text-align:center;">
+            <h1 class="display-4"><strong>Guest House</strong></h1>
+            <p class="lead">팬들끼리 소통할 수 있는 공간.</p>
+    </section>
+
+    <section id="nav-section">
+            <input class="btn btn-outline-primary" type="button" value="모임 만들기" onClick="location.href='{% url 'create' %}'">
+
+            <!-- <a href="{% url 'create' %}">모임 만들기</a> -->
+    </section>
+
+    <section id="main-section">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>콘서트이름</th>
+                    <th>가수</th>
+                    <th>콘서트날짜</th>
+                    <th>글쓴이이메일</th>
+                    <th>게시날짜</th>
+                    <th>수정</th>
+                    <th>삭제</th>
+                    <th>상세정보</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in object_list %}
+                <tr>
+                    <td>{{ post.concert_name }}</td>
+                    <td>{{ post.singer }}</td>
+                    <td>{{ post.concert_date }}</td>
+                    <td>{{ post.owner_email }}</td>
+                    <td>{{ post.post_date }}</td>
+                    <td>
+                        <a href="{% url 'update' post.id %}">
+                            <button type="button" class="btn btn-outline-primary">수정하기</button>
+                        </a>
+                    </td>
+                     <td>
+                         <a href="{% url 'delete' post.id %}">
+                             <button type="button" class="btn btn-outline-primary">삭제하기</button>
+                         </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'detail' post.id %}">
+                            <button type="button" class="btn btn-outline-primary">상세정보</button>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    <footer>
+
+
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+</section>
+</body>
+
+</html>
